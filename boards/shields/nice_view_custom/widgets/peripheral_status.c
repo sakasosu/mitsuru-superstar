@@ -34,10 +34,10 @@ LV_IMG_DECLARE(lexy3);
 LV_IMG_DECLARE(lexy4);
 
 const lv_img_dsc_t *lexy_anim[] = {
-    &lexy01,
-    &lexy02,
-    &lexy03,
-    &lexy04,
+    &lexy1,
+    &lexy2,
+    &lexy3,
+    &lexy4,
 };
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
