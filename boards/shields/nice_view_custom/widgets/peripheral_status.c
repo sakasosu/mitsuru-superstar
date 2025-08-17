@@ -26,6 +26,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 LV_IMG_DECLARE(sora);
 LV_IMG_DECLARE(a);
 LV_IMG_DECLARE(clubpenguin);
+LV_IMG_DECLARE(miku);
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
@@ -116,7 +117,7 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     lv_canvas_set_buffer(top, widget->cbuf, CANVAS_SIZE, CANVAS_SIZE, LV_IMG_CF_TRUE_COLOR);
 
 lv_obj_t *art = lv_img_create(widget->obj);
-uint32_t random = sys_rand32_get() % 3; // Get a random number between 0 and 2
+uint32_t random = sys_rand32_get() % 4; // Get a random number between 0 and 3
 
 switch(random) {
     case 0:
@@ -128,6 +129,9 @@ switch(random) {
     case 2:
         lv_img_set_src(art, &clubpenguin);
         break;
+	case 3:
+		lv_img_set_src(art, &miku);
+		break;
 }
     //lv_img_set_src(art, &sora);
 
