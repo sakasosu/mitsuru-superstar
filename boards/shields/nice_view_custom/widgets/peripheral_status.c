@@ -23,8 +23,8 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #include "peripheral_status.h"
 
-LV_IMG_DECLARE(sora);
-LV_IMG_DECLARE(a);
+LV_IMG_DECLARE(mitsuru);
+LV_IMG_DECLARE(taigei);
 LV_IMG_DECLARE(clubpenguin);
 LV_IMG_DECLARE(miku);
 
@@ -121,10 +121,10 @@ uint32_t random = sys_rand32_get() % 4; // Get a random number between 0 and 3
 
 switch(random) {
     case 0:
-        lv_img_set_src(art, &sora);
+        lv_img_set_src(art, &mitsuru);
         break;
     case 1:
-        lv_img_set_src(art, &a);
+        lv_img_set_src(art, &taigei);
         break;
     case 2:
         lv_img_set_src(art, &clubpenguin);
