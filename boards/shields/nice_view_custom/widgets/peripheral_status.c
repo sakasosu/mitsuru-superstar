@@ -28,6 +28,17 @@ LV_IMG_DECLARE(taigei);
 LV_IMG_DECLARE(clubpenguin);
 LV_IMG_DECLARE(miku);
 LV_IMG_DECLARE(lach);
+LV_IMG_DECLARE(lexy1);
+LV_IMG_DECLARE(lexy2);
+LV_IMG_DECLARE(lexy3);
+LV_IMG_DECLARE(lexy4);
+
+const lv_img_dsc_t *lexy_anim[] = {
+    &lexy01,
+    &lexy02,
+    &lexy03,
+    &lexy04,
+};
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
@@ -117,25 +128,36 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     lv_obj_align(top, LV_ALIGN_TOP_RIGHT, 0, 0);
     lv_canvas_set_buffer(top, widget->cbuf, CANVAS_SIZE, CANVAS_SIZE, LV_IMG_CF_TRUE_COLOR);
 
-lv_obj_t *art = lv_img_create(widget->obj);
-uint32_t random = sys_rand32_get() % 5; // Get a random number between 0 and 3
+uint32_t random = sys_rand32_get() % 6; // Get a random number between 0 and 5
 
 switch(random) {
     case 0:
+		lv_obj_t *art = lv_img_create(widget->obj);
         lv_img_set_src(art, &mitsuru);
         break;
     case 1:
+		lv_obj_t *art = lv_img_create(widget->obj);
         lv_img_set_src(art, &taigei);
         break;
     case 2:
+		lv_obj_t *art = lv_img_create(widget->obj);
         lv_img_set_src(art, &clubpenguin);
         break;
 	case 3:
+		lv_obj_t *art = lv_img_create(widget->obj);
 		lv_img_set_src(art, &miku);
 		break;
 	case 4:
+		lv_obj_t *art = lv_img_create(widget->obj);
 		lv_img_set_src(art, &lach);
 		break;
+	case 5:
+		lv_obj_t * art = lv_animimg_create(widget->obj);            //<--
+		lv_obj_center(art);                                         //<--
+		lv_animimg_set_src(art, (const void **) lexy_anim, 4);     //<--
+		lv_animimg_set_duration(art, 1600);//<--
+		lv_animimg_set_repeat_count(art, LV_ANIM_REPEAT_INFINITE);  //<--
+		lv_animimg_start(art);                                      //<--
 }
     //lv_img_set_src(art, &sora);
 
