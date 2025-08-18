@@ -32,6 +32,7 @@ LV_IMG_DECLARE(lexy1);
 LV_IMG_DECLARE(lexy2);
 LV_IMG_DECLARE(lexy3);
 LV_IMG_DECLARE(lexy4);
+LV_IMG_DECLARE(iidx);
 
 const lv_img_dsc_t *lexy_anim[] = {
     &lexy1,
@@ -129,7 +130,7 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     lv_canvas_set_buffer(top, widget->cbuf, CANVAS_SIZE, CANVAS_SIZE, LV_IMG_CF_TRUE_COLOR);
 
 lv_obj_t *art = NULL;
-uint32_t random = sys_rand32_get() % 6; // Get a random number between 0 and 5
+uint32_t random = sys_rand32_get() % 7; // Get a random number between 0 and 6
 
 switch(random) {
     case 0:
@@ -159,6 +160,9 @@ switch(random) {
 		lv_animimg_set_duration(art, 1600);//<--
 		lv_animimg_set_repeat_count(art, LV_ANIM_REPEAT_INFINITE);  //<--
 		lv_animimg_start(art);                                      //<--
+	case 6:
+		art = lv_img_create(widget->obj);
+		lv_img_set_src(art, &iidx);
 }
     //lv_img_set_src(art, &sora);
 
