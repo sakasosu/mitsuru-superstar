@@ -160,9 +160,11 @@ switch(random) {
 		lv_animimg_set_duration(art, 1600);//<--
 		lv_animimg_set_repeat_count(art, LV_ANIM_REPEAT_INFINITE);  //<--
 		lv_animimg_start(art);                                      //<--
+		break;
 	case 6:
 		art = lv_img_create(widget->obj);
 		lv_img_set_src(art, &iidx);
+		break;
 }
     //lv_img_set_src(art, &sora);
 
