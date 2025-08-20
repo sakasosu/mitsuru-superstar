@@ -201,7 +201,7 @@ switch(random) {
 		lv_img_set_src(art, &iidx);
 		break;
 	case 7:
-		art= lv_animing_create(widget->obj);
+		art = lv_animimg_create(widget->obj);
 		lv_obj_center(art);
 		lv_animimg_set_src(art, (const void **) caramelldansen_anim, 72); 
 		lv_animing_set_duration(art, 720);
