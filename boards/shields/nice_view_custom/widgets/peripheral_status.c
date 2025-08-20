@@ -33,12 +33,47 @@ LV_IMG_DECLARE(lexy2);
 LV_IMG_DECLARE(lexy3);
 LV_IMG_DECLARE(lexy4);
 LV_IMG_DECLARE(iidx);
+LV_IMG_DECLARE(caramelldansen01);
+LV_IMG_DECLARE(caramelldansen02);
+LV_IMG_DECLARE(caramelldansen03);
+LV_IMG_DECLARE(caramelldansen04);
+LV_IMG_DECLARE(caramelldansen05);
+LV_IMG_DECLARE(caramelldansen06);
+LV_IMG_DECLARE(caramelldansen07);
+LV_IMG_DECLARE(caramelldansen08);
+LV_IMG_DECLARE(caramelldansen09);
+LV_IMG_DECLARE(caramelldansen10);
+LV_IMG_DECLARE(caramelldansen11);
+LV_IMG_DECLARE(caramelldansen12);
+LV_IMG_DECLARE(caramelldansen13);
+LV_IMG_DECLARE(caramelldansen14);
+LV_IMG_DECLARE(caramelldansen15);
+LV_IMG_DECLARE(caramelldansen16);
 
 const lv_img_dsc_t *lexy_anim[] = {
     &lexy1,
     &lexy2,
     &lexy3,
     &lexy4,
+};
+
+const lv_img_dsc_t *caramelldansen_anim[] = {
+	&caramelldansen01,&caramelldansen01,&caramelldansen01,
+	&caramelldansen02,&caramelldansen02,&caramelldansen02,&caramelldansen02,
+	&caramelldansen03,&caramelldansen03,&caramelldansen03,&caramelldansen03,&caramelldansen03,&caramelldansen03,
+	&caramelldansen04,&caramelldansen04,&caramelldansen04,&caramelldansen04,
+	&caramelldansen05,&caramelldansen05,&caramelldansen05,
+	&caramelldansen06,&caramelldansen06,&caramelldansen06,&caramelldansen06,&caramelldansen06,&caramelldansen06,&caramelldansen06,
+	&caramelldansen07,&caramelldansen07,&caramelldansen07,
+	&caramelldansen08,&caramelldansen08,&caramelldansen08,&caramelldansen08,&caramelldansen08,&caramelldansen08,&caramelldansen08,
+	&caramelldansen09,&caramelldansen09,&caramelldansen09,
+	&caramelldansen10,&caramelldansen10,&caramelldansen10,
+	&caramelldansen11,&caramelldansen11,&caramelldansen11,&caramelldansen11,&caramelldansen11,&caramelldansen11,&caramelldansen11,
+	&caramelldansen12,&caramelldansen12,&caramelldansen12,
+	&caramelldansen13,&caramelldansen13,&caramelldansen13,&caramelldansen13,
+	&caramelldansen14,&caramelldansen14,&caramelldansen14,
+	&caramelldansen15,&caramelldansen15,&caramelldansen15,&caramelldansen15,&caramelldansen15,&caramelldansen15,&caramelldansen15,
+	&caramelldansen16,&caramelldansen16,&caramelldansen16,&caramelldansen16,&caramelldansen16,
 };
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
@@ -130,7 +165,7 @@ int zmk_widget_status_init(struct zmk_widget_status *widget, lv_obj_t *parent) {
     lv_canvas_set_buffer(top, widget->cbuf, CANVAS_SIZE, CANVAS_SIZE, LV_IMG_CF_TRUE_COLOR);
 
 lv_obj_t *art = NULL;
-uint32_t random = sys_rand32_get() % 7; // Get a random number between 0 and 6
+uint32_t random = sys_rand32_get() % 8; // Get a random number between 0 and 7
 
 switch(random) {
     case 0:
@@ -165,6 +200,15 @@ switch(random) {
 		art = lv_img_create(widget->obj);
 		lv_img_set_src(art, &iidx);
 		break;
+	case 7:
+		art= lv_animing_create(widget->obj);
+		lv_obj_center(art);
+		lv_animimg_set_src(art, (const void **) caramelldansen_anim, 72); 
+		lv_animing_set_duration(art, 720);
+		lv_animing_set_repeat_count(art, LV_ANIM_REPEAT_INFINITE);
+		lv_animimg_start(art);
+		break;
+		
 }
     //lv_img_set_src(art, &sora);
 
