@@ -204,8 +204,8 @@ switch(random) {
 		art = lv_animimg_create(widget->obj);
 		lv_obj_center(art);
 		lv_animimg_set_src(art, (const void **) caramelldansen_anim, 72); 
-		lv_animing_set_duration(art, 720);
-		lv_animing_set_repeat_count(art, LV_ANIM_REPEAT_INFINITE);
+		lv_animimg_set_duration(art, 720);
+		lv_animimg_set_repeat_count(art, LV_ANIM_REPEAT_INFINITE);
 		lv_animimg_start(art);
 		break;
 		
